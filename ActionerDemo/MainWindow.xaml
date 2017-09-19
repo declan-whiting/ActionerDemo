@@ -1,0 +1,60 @@
+﻿<Window x:Class="ActionerDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ActionerDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               FontSize="30">
+                 <Bold>
+                    Actioner Demo
+                  </Bold>
+        </Label>
+        
+        <Button Grid.Column="0" Grid.Row="1"
+                Height="30"
+                Margin="10"
+                Content="Short Task"
+                Command="{Binding ShortCommand}"/>
+        <Button Grid.Column="0" Grid.Row="2"
+                Height="30"
+                Margin="10"
+                Content="Medium Task"
+                Command="{Binding MediumCommand}"/>
+        <Button Grid.Column="0" Grid.Row="3"
+                Height="30"
+                Margin="10" 
+                Content="Long Task"
+                Command="{Binding LongCommand}"/>
+
+        <TextBox Grid.Column="1"
+                   Grid.Row="1"
+                   Grid.RowSpan="3"
+                   Margin="20"
+                   IsReadOnly="True"
+                   VerticalScrollBarVisibility="Auto"
+                   Text="{Binding Output}"/>
+    </Grid>
+</Window>
